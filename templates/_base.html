@@ -1,0 +1,36 @@
+<!-- templates/_base.html -->
+
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Xiao Cai</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+</head>
+
+<body class="bg-green-50">
+    <div class="grid grid-rows-3 grid-col-3">
+            <div class="row-span-1 col-span-1">
+                {% include 'navbar.html'%}
+            </div>
+            <div class="row-span-1 col-span-1">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <div class="row-span-1 col-span-1">
+
+            </div>
+        </div>
+       
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+
+</html>
