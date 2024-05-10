@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor', 
+    'crypto_dash',
 ]
 
 COMPRESS_ROOT = BASE_DIR / 'static'

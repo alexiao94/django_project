@@ -2,21 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-class Symbols(models.model):
+class Symbols(models.Model):
     # Primary key
     id = models.CharField(primary_key=True, max_length=20)
 
     # Attributes
     name = models.CharField(max_length=20, unique=True)
 
-class Exchanges(models.model):
+class Exchanges(models.Model):
     # Primary key
     id = models.CharField(primary_key=True, max_length=20)
 
     # Attributes
     name = models.CharField(max_length=20, unique=True)
 
-class Records(models.model):
+class Records(models.Model):
     # Primary key
     id = models.AutoField(primary_key=True)
 
@@ -32,7 +32,7 @@ class Records(models.model):
     time_open = models.DateTimeField()
     time_close = models.DateTimeField()
 
-class Transactions(models.model):
+class Transactions(models.Model):
     # Primary key
     id = models.AutoField(primary_key=True)
 
@@ -41,13 +41,13 @@ class Transactions(models.model):
     symbol = models.ForeignKey(Symbols, on_delete=models.CASCADE)
     exchange = models.ForeignKey(Exchanges, on_delete=models.CASCADE)
 
-    type_choice = {
-        'B': "BUY",
-        'S': "SELL"
-    }
+    type_choice = (
+        ('B', "BUY"),
+        ('S', "SELL"),
+    )
 
     # Attributes
-    type = models.CharField(choices=type_choice)
+    type = models.CharField(choices=type_choice, max_length=20)
     amount = models.FloatField()
     price = models.FloatField()
     post_date = models.DateTimeField()
