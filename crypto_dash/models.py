@@ -11,8 +11,28 @@ class Symbols(models.Model):
 
     def __str__(self):
         return f"{self.id}, {self.name}"
+    
+class Fiat(models.Model):
+    # Primary key
+    id = models.CharField(primary_key=True, max_length=20)
 
+    # Attributes
+    name = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return f"{self.id}, {self.name}"
+    
 class Exchanges(models.Model):
+    # Primary key
+    id = models.CharField(primary_key=True, max_length=20)
+
+    # Attributes
+    name = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return f"{self.id}, {self.name}"
+    
+class Type(models.Model):
     # Primary key
     id = models.CharField(primary_key=True, max_length=20)
 
@@ -29,7 +49,9 @@ class Records(models.Model):
     # Foreign keys
     symbol = models.ForeignKey(Symbols, on_delete=models.CASCADE)
     exchange = models.ForeignKey(Exchanges, on_delete=models.CASCADE)
-
+    fiat = models.ForeignKey(Fiat,on_delete=models.CASCADE)
+    type = models.ForeignKey(Type,on_delete=models.CASCADE)
+    
     # Attributes
     price_open = models.FloatField()
     price_close = models.FloatField()
