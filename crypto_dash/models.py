@@ -9,6 +9,9 @@ class Symbols(models.Model):
     # Attributes
     name = models.CharField(max_length=20, unique=True)
 
+    def __str__(self):
+        return f"{self.id}, {self.name}"
+
 class Exchanges(models.Model):
     # Primary key
     id = models.CharField(primary_key=True, max_length=20)
@@ -16,6 +19,9 @@ class Exchanges(models.Model):
     # Attributes
     name = models.CharField(max_length=20, unique=True)
 
+    def __str__(self):
+        return f"{self.id}, {self.name}"
+    
 class Records(models.Model):
     # Primary key
     id = models.AutoField(primary_key=True)
