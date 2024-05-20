@@ -15,19 +15,19 @@
     {% endcompress %}
 </head>
 
-<body class="bg-green-50">
-    <div class="grid grid-rows-3 grid-col-3">
-            <div class="row-span-1 col-span-1">
-                {% include 'navbar.html'%}
+<body class="bg-blue">
+    <div class="grid grid-rows-3 grid-col-3 gap-3">
+            <div class="row-span-1 col-span-3"> 
+            <div class="grid grid-cols-3 grid-rows-3 gap-3 px-10">
+                <div class="grid col-start-3 justify-end">
+                    {% include 'navbar.html'%}
+                </div>
+            </div>
             </div>
             <div class="row-span-1 col-span-1">
                 {% block content %}
                 {% endblock content %}
-            </div>
-            <div class="row-span-1 col-span-1">
-
-            </div>
-        </div>
+            </div> 
        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

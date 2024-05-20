@@ -30,7 +30,7 @@ class market():
         _exchange = Exchanges.objects.get(id=exchange.id)
         _fiat = Fiat.objects.get(id=fiat.id)
         _type = Type.objects.get(id=type.id)
-
+        ohlcv_historical.reverse()
         for period in ohlcv_historical:
             record = Records(symbol=_symbol,
                              exchange=_exchange,

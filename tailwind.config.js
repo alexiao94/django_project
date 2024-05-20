@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+/* static/src/input.css */
+/**  @type {import('tailwindcss').Config} */
 module.exports = {
   content: [ 
             './templates/**/*.html',
