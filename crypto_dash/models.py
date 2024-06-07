@@ -42,6 +42,16 @@ class Type(models.Model):
     def __str__(self):
         return f"{self.id}, {self.name}"
     
+class Time(models.Model):
+    # Primary key
+    id = models.CharField(primary_key=True, max_length=20)
+
+    # Attributes
+    name = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return f"{self.id}, {self.name}"
+    
 class Records(models.Model):
     # Primary key
     id = models.AutoField(primary_key=True)
@@ -51,6 +61,7 @@ class Records(models.Model):
     exchange = models.ForeignKey(Exchanges, on_delete=models.CASCADE)
     fiat = models.ForeignKey(Fiat,on_delete=models.CASCADE)
     type = models.ForeignKey(Type,on_delete=models.CASCADE)
+    time = models.ForeignKey(Time, on_delete=models.CASCADE)
     
     # Attributes
     price_open = models.FloatField()
@@ -59,6 +70,10 @@ class Records(models.Model):
     price_high = models.FloatField()
     time_open = models.DateTimeField()
     time_close = models.DateTimeField()
+    period_start = models.DateTimeField()
+    period_end = models.DateTimeField()
+    volume = models.FloatField()
+    trades = models.FloatField()
 
 class Transactions(models.Model):
     # Primary key
